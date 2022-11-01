@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /*1 rem 10px*/
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Fira Sans', sans-serif;
+  /* background-image: url(./assets/night2.svg); */
+  background-size: cover;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+#root {
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
+  position: relative;
+}
+
+.date {
+  position: absolute;
+  font-size: 26px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 17.5%;
+  text-align: center;
+}
+
+.glass {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  height: 30rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 66%;
+  /* border: 2px solid red; */
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.3rem;
+  flex-basis: 50%;
+  /* border: 2px solid blue; */
+}
+
+.location h1 {
+  font-size: 3.5rem;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  height: 33px;
+  width: 400px;
+}
+
+.weather h2 {
+  font-size: 3rem;
+}
+.weather img {
+  width: 8rem;
+}
+
+.degrees {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 29rem;
+}
+
+.degrees ul {
+  font-size: 1.8rem;
+}
+
+.degrees h2 {
+  font-size: 5.5rem;
+}
+.degrees .corf {
+  font-size: 2.5rem;
+}
+
+.secondary {
+  font-size: 2rem;
+  text-align: end;
+  /* border: 2px solid green; */
+  flex-basis: 50%;
+}
+.secondary ul li {
+  line-height: 6.2rem;
+}
+
+.secondary ul li img {
+  width: 2.5rem;
+  margin-right: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 1rem 4rem;
+  width: 15rem;
+  text-align: center;
+  color: #222;
+}
+
+.spinner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+
+@media (max-width: 960px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 660px) {
+  .date {
+    font-size: 20px;
+    top: 10%;
+  }
+
+  .glass {
+    height: 80%;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .location h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .weather h2 {
+    font-size: 2rem;
+  }
+
+  .degrees h2 {
+    font-size: 4rem;
+  }
+
+  .degrees ul {
+    font-size: 1.4rem;
+  }
+
+  .main {
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .secondary ul {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+  }
+
+  .secondary ul li img {
+    width: 1.5rem;
+    margin: 0 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .secondary ul {
+    flex-direction: column;
+
+    align-items: flex-start;
+    font-size: 1.6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
