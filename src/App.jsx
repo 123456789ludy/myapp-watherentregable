@@ -116,6 +116,7 @@ const gradosFahrenheit = parseInt(1.8 * (gradosKelvin - 273.15) + 32);
                 </div>
                 </Card>
             </div>
+            <p>elaborado por ludy</p>
             <div className='moon'></div>
         </div>
     
