@@ -1,29 +1,42 @@
 import React from 'react'
 
-function Hour() {
-  const weekday = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ]
-
-  const date = new Date()
-  const hour = date.getHours().toLocaleString()
-  const day = weekday[date.getDay()]
-  const minutes = date.getMinutes().toLocaleString()
-
+function Degrees({ weather, celsius }) {
   return (
-    <div className='date'>
-      <h2>{day.toUpperCase()}</h2>
-      <h3>{`${hour <= 9 ? 0 + hour : hour}:${
-        minutes <= 9 ? 0 + minutes : minutes
-      } ${hour > 12 ? 'PM' : 'AM'}`}</h3>
+    <div className='degrees'>
+      <h2>
+        {celsius
+          ? `${(weather.main?.temp - 273.15).toFixed(1)}`
+          : `${(((weather.main?.temp - 273.15) * 9) / 5 + 32).toFixed(1)}`}
+        <span className='corf'>{celsius ? '°c' : '°f'}</span>
+      </h2>
+      <ul>
+        <li>
+          Feels like:{' '}
+          {celsius
+            ? `${(weather.main?.temp - 273.15).toFixed(1)}°c`
+            : `${(((weather.main?.temp - 273.15) * 9) / 5 + 32).toFixed(
+                1
+              )}°f`}{' '}
+        </li>
+        <li>
+          Low:{'  '}
+          {celsius
+            ? `${(weather.main?.temp_min - 273.15).toFixed(2)}°c`
+            : `${(((weather.main?.temp_min - 273.15) * 9) / 5 + 32).toFixed(
+                2
+              )}°f`}
+        </li>
+        <li>
+          High:{'  '}
+          {celsius
+            ? `${(weather.main?.temp_max - 273.15).toFixed(2)}°c`
+            : `${(((weather.main?.temp_max - 273.15) * 9) / 5 + 32).toFixed(
+                2
+              )}°f`}
+        </li>
+      </ul>
     </div>
   )
 }
 
-export default Hour
+export default Degrees

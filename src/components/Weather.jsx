@@ -1,16 +1,14 @@
 import React from 'react'
-import spinner from '../assets/spinner.gif'
 
-function Spinner() {
+function Weather({ weather, celsius }) {
   return (
-    <div className='spinner'>
+    <div className='weather'>
       <img
-        src={spinner}
-        alt='Loading...'
-        style={{ width: '100px', margin: 'auto', display: 'block' }}
+        src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
       />
+      <h2 className='weather-main'>{weather.weather?.[0].description}</h2>
     </div>
   )
 }
 
-export default Spinner
+export default Weather

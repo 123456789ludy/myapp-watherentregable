@@ -17,13 +17,21 @@ function App() {
   const [weather, setWeather] = useState({})
   const [celsius, setCelsius] = useState(true)
   const [background, setBackground] = useState('')
-  const [charged, setCharged] = useState(true)
+  const [charged, setCharged] = useState(false)
+ const [ischange, setIschange] = useState(true)
+ const [isChangeGrados, setChangeGrados] = useState(true);
 
   useEffect(() => {
     const success = (pos) => {
       const coords = pos.coords
       const lat = coords.latitude
       const long = coords.longitude
+      
+      setCharged(true)
+        setTimeout(() => {
+        setCharged(false)
+        }, 3000)
+     
       // console.log(`coords: ${coords}, lat: ${lat}, long: ${lo
       axios
         .get(
@@ -48,62 +56,74 @@ function App() {
         icon === '10d' ||
         icon === '13d'
       ) {
-        return 'https://i.ibb.co/vsVyMf3/sun.webp'
+        return 'https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       } else if (
         icon === '02d' ||
         icon === '04d' ||
         icon === '11d' ||
         icon === '50d'
       ) {
-        return 'https://i.ibb.co/TrXGZGG/sun2.webp'
+        return 'https://images.pexels.com/photos/2747045/pexels-photo-2747045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       } else if (
         icon === '01d' ||
         icon === '03n' ||
         icon === '09n' ||
         icon === '10n' ||
-        icon === '13n'
+        icon === '13n' 
       ) {
-        return 'https://i.ibb.co/k8G8H4Q/night2.webp'
+        return 'https://images.pexels.com/photos/1144176/pexels-photo-1144176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       } else if (
         icon === '02n' ||
         icon === '04n' ||
         icon === '11n' ||
         icon === '50n'
       ) {
-        return 'https://i.ibb.co/DgNc8WG/night.webp'
+        return 'https://images.pexels.com/photos/8246465/pexels-photo-8246465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
       }
     }
-
+    
     setBackground(set(weather.weather?.[0].icon))
     // document.body.style = `Background-image: url(${background})
   }, [charged])
 
+  const convertion = () => {
+    setIschange(!ischange)
+    setChangeGrados(!isChangeGrados)
+  }
+ 
+const gradosKelvin = weather.main?.temp
+const gradosCentigrados = parseInt(gradosKelvin - 273.15);
+const gradosFahrenheit = parseInt(1.8 * (gradosKelvin - 273.15) + 32);
   console.log(weather)
 
-  return charged ? (
-    <div className='app'>
-      <Background background={background} />
-      <Hour />
-      <div className='glass'>
-        <Card>
-          <div className='main'>
-            <Location weather={weather} celsius={celsius} />
-            <Weather weather={weather} />
-            <Degrees weather={weather} celsius={celsius} />
-            <ChangeDegrees setCelsius={setCelsius} celsius={celsius} />
-          </div>
-          <div className='secondary'>
-            <Secondary weather={weather} />
-          </div>
-        </Card>
-      </div>
-      <div className='moon'></div>
-    </div>
-  ) : (
-    <Spinner />
+  return (
+    
+        <div className='app'>
+            <Background background={background} />
+            <Hour />
+            <div className='glass'>
+                <Card>
+                <div className='main'>
+                <h2>{ischange ? gradosFahrenheit : gradosCentigrados} {isChangeGrados ? "°F" : "°C"} </h2>
+                    <Location weather={weather} celsius={celsius} />
+                    <Weather weather={weather} />
+                    <Degrees weather={weather} celsius={celsius} />
+                    <ChangeDegrees setCelsius={setCelsius} celsius={celsius}  />
+                
+                </div>
+                <div className='secondary'>
+                    <Secondary weather={weather} />
+                </div>
+                </Card>
+            </div>
+            <div className='moon'></div>
+        </div>
+    
   )
 }
-
+/**  ) : (
+    <Spinner /> 
+     )*/
 export default App
 
 

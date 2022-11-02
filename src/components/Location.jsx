@@ -1,16 +1,14 @@
 import React from 'react'
-import spinner from '../assets/spinner.gif'
+import { useEffect } from 'react'
 
-function Spinner() {
+function Location({ weather }) {
   return (
-    <div className='spinner'>
-      <img
-        src={spinner}
-        alt='Loading...'
-        style={{ width: '100px', margin: 'auto', display: 'block' }}
-      />
+    <div className='location'>
+      <h1>
+        {weather.name}, {weather.sys?.country}
+      </h1>
     </div>
   )
 }
 
-export default Spinner
+export default Location

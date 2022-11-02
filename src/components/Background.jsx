@@ -1,13 +1,11 @@
 import React from 'react'
 
-function ChangeDegrees({ setCelsius, celsius }) {
+function Background({ background }) {
   return (
-    <>
-      <div className='btn' onClick={() => setCelsius(!celsius)}>
-        Change to {celsius ? '°F' : '°C'}
-      </div>
-    </>
+    <div className='background'>
+      <img src={background} alt='image' />
+    </div>
   )
 }
 
-export default ChangeDegrees
+export default Background

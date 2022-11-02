@@ -1,13 +1,7 @@
 import React from 'react'
 
-function ChangeDegrees({ setCelsius, celsius }) {
-  return (
-    <>
-      <div className='btn' onClick={() => setCelsius(!celsius)}>
-        Change to {celsius ? '°F' : '°C'}
-      </div>
-    </>
-  )
+function Card({ children }) {
+  return <div className='card'>{children}</div>
 }
 
-export default ChangeDegrees
+export default Card
